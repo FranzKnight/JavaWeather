@@ -8,6 +8,7 @@ import android.util.Log;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 import com.android.volley.Request;
@@ -31,6 +32,14 @@ public class detroit extends AppCompatActivity {
     Button home;
 
 
+    TextView idTest;
+    TextView mainWeatherTest;
+    TextView descriptionTest;
+
+
+
+
+    //IMPORT WEATHER INFO FROM API
     private RequestQueue requestQueue;
 
     @Override
@@ -38,8 +47,20 @@ public class detroit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detroit);
 
+        //Initializing all the buttons and views
 
+            //Buttons
         home = findViewById(R.id.home);
+
+            //Text Views
+        idTest = findViewById(R.id.idTest);
+        mainWeatherTest = findViewById(R.id.mainWeatherTest);
+        descriptionTest = findViewById(R.id.descriptionTest);
+
+
+
+        //End initializing views
+
 
         //instantiate the request queue
         requestQueue = Volley.newRequestQueue(this);
@@ -62,9 +83,17 @@ public class detroit extends AppCompatActivity {
                             Log.i("JSON info", "ID: " + id);
                             Log.i("JSON info", "main weather: " + mainWeather);
                             Log.i("JSON info", "Description" + description);
+
+
+
+
+
+
+
                         } catch (JSONException ex) {
                             Log.e("JSON Error", ex.getMessage());
                         }
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -73,13 +102,16 @@ public class detroit extends AppCompatActivity {
 
                     }
                 }
-        );
+    );
 
         requestQueue.add(jsonObjectRequest);
 
 
 
-        //IMPORT WEATHER INFO FROM API
+//END OF JSON OBJECT REQUEST
+
+
+
 
 
         //create object request
