@@ -37,8 +37,7 @@ public class detroit extends AppCompatActivity {
     TextView descriptionTest;
 
 
-
-
+//asdfasdfasdfasdf
     //IMPORT WEATHER INFO FROM API
     private RequestQueue requestQueue;
 
