@@ -73,7 +73,7 @@ public class detroit extends AppCompatActivity {
 
                     }
                 }
-    );
+        );
 
         requestQueue.add(jsonObjectRequest);
 
