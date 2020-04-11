@@ -67,7 +67,7 @@ public class detroit extends AppCompatActivity {
 
         //create object request
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "https://api.openweathermap.org/data/2.5/onecall?lat=42.331429&lon=-83.045753&appid=1b34e5a03df81b9a93e074cea4852b5d", null,
+                "https://www.api.openweathermap.org/data/2.5/weather?q=Detroit&appid=1b34e5a03df81b9a93e074cea4852b5d", null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
