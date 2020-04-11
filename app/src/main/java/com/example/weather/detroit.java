@@ -41,8 +41,7 @@ public class detroit extends AppCompatActivity {
     String dataResults = " ";
 
 
-
-
+//asdfasdfasdfasdf
     //IMPORT WEATHER INFO FROM API
     private RequestQueue requestQueue;
 
