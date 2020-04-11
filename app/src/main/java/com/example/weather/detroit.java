@@ -36,6 +36,10 @@ public class detroit extends AppCompatActivity {
     TextView mainWeatherTest;
     TextView descriptionTest;
 
+    TextView jTesting;
+    String URL = "https://www.api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=5225ba78215711c14d97b36ee6d49633";
+    String dataResults = " ";
+
 
 
 
@@ -66,12 +70,16 @@ public class detroit extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         //create object request
+
+        //BAUGH CODE
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "https://www.api.openweathermap.org/data/2.5/weather?q=Detroit&appid=1b34e5a03df81b9a93e074cea4852b5d", null,
+                "https://api.openweathermap.org/data/2.5/onecall?lat=42.331429&lon=-83.045753&appid=1b34e5a03df81b9a93e074cea4852b5d", null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+
                             JSONArray weather = response.getJSONArray("weather");
 
                             JSONObject currentWeather = weather.getJSONObject(0);
@@ -84,6 +92,8 @@ public class detroit extends AppCompatActivity {
                             Log.i("JSON info", "main weather: " + mainWeather);
                             Log.i("JSON info", "Description" + description);
 
+
+                            jTesting.setText(mainWeather);
 
 
 
@@ -106,9 +116,8 @@ public class detroit extends AppCompatActivity {
 
         requestQueue.add(jsonObjectRequest);
 
-
-
 //END OF JSON OBJECT REQUEST
+
 
 
 
