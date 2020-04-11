@@ -7,18 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import android.os.Bundle;
+public class NewYorkCity extends AppCompatActivity {
 
-
-
-public class SanDiego extends AppCompatActivity {
 
     Button home;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_san_diego);
+        setContentView(R.layout.activity_new_york_city);
 
 
         home = findViewById(R.id.home);
@@ -27,12 +25,11 @@ public class SanDiego extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(SanDiego.this, MainActivity.class);
+                Intent intent = new Intent(NewYorkCity.this, MainActivity.class);
                 startActivity(intent);
 
             }
         });
-
 
     }
 }

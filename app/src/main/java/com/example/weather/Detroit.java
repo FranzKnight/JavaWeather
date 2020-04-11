@@ -1,33 +1,35 @@
 package com.example.weather;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+
+public class detroit extends AppCompatActivity {
 
 
+    Button home;
 
 
-public class Detroit extends Fragment {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detroit);
 
 
-    TextView detroitTitle;
+        home = findViewById(R.id.home);
 
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-    private String heading;
+                Intent intent = new Intent(detroit.this, MainActivity.class);
+                startActivity(intent);
 
+            }
+        });
 
-
+    }
 }
