@@ -31,57 +31,91 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <TextView
-        android:id="@+id/idTest"
+        android:id="@+id/currentTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ID TEST"
+        android:text="CURRENT TEMP"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.219" />
+        app:layout_constraintVertical_bias="0.16" />
 
     <TextView
-        android:id="@+id/mainWeatherTest"
+        android:id="@+id/currentDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MAIN WEATHER TEST"
+        android:text="DESCRIPTION"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.273" />
+        app:layout_constraintVertical_bias="0.214" />
 
     <TextView
-        android:id="@+id/descriptionTest"
+        android:id="@+id/fiveDayForecast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DESCRIPTION TEST"
+        android:text="FIVE DAY FORECAST"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.331" />
+        app:layout_constraintVertical_bias="0.386" />
 
     <TextView
-        android:id="@+id/jTesting"
+        android:id="@+id/dayOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="JSONTEST"
+        android:text="Day 1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/fiveDayForecast"
+        app:layout_constraintVertical_bias="0.078" />
 
     <TextView
-        android:id="@+id/tempTest"
+        android:id="@+id/dayTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TEMPTEST"
+        android:text="Day 2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.799" />
+        app:layout_constraintTop_toBottomOf="@+id/dayOne"
+        app:layout_constraintVertical_bias="0.029" />
+
+    <TextView
+        android:id="@+id/dayThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Day 3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayTwo"
+        app:layout_constraintVertical_bias="0.041" />
+
+    <TextView
+        android:id="@+id/dayFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Day 4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayThree"
+        app:layout_constraintVertical_bias="0.039" />
+
+    <TextView
+        android:id="@+id/dayFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Day 5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayFour"
+        app:layout_constraintVertical_bias="0.036" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
