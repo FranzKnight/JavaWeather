@@ -40,10 +40,18 @@ public class detroit extends AppCompatActivity {
     TextView tempTest;
 
 
-    String URL = "https://www.api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=5225ba78215711c14d97b36ee6d49633";
+    String URL = "http://api.openweathermap.org/data/2.5/forecast?q=detroit&appid=5225ba78215711c14d97b36ee6d49633";
     String dataResults = " ";
     String tempResults = " ";
 
+
+    String actualTemp;
+    String clouds;
+
+
+    String feelsLikeTemp;
+    String minTemp;
+    String maxTemp;
 
 
 
@@ -67,6 +75,7 @@ public class detroit extends AppCompatActivity {
         jTesting = findViewById(R.id.jTesting);
         tempTest = findViewById(R.id.tempTest);
 
+
         //End initializing views
 
 
@@ -75,22 +84,34 @@ public class detroit extends AppCompatActivity {
 
         //create object request
 
+
+
         //BAUGH CODE
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "https://api.openweathermap.org/data/2.5/forecast?q=detroit&appid=5225ba78215711c14d97b36ee6d49633", null,
+                "https://api.openweathermap.org/data/2.5/forecast?q=detroit&units=imperial&appid=5225ba78215711c14d97b36ee6d49633", null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
 
 
-
-
                             JSONArray theList = response.getJSONArray("list");
+
                             String TESTJSON = theList.toString();
 
                             JSONObject firstElement = theList.getJSONObject(0);
+
+                            JSONObject mainElement = firstElement.getJSONObject("main");
+
+                            actualTemp = mainElement.getString("temp");
+
+                            JSONObject secondElement = firstElement.getJSONObject("clouds");
+
+                            clouds = secondElement.getString("all");
+
+
+
 
 
 
@@ -104,13 +125,9 @@ public class detroit extends AppCompatActivity {
                             String TESTJSON2 = weatherArray.toString();
 
 
-                            tempTest.setText(firstElement.toString());
+                            tempTest.setText(clouds);
 
-
-
-
-
-                            jTesting.setText(TESTJSON2);
+                            jTesting.setText(actualTemp);
 
 
 
