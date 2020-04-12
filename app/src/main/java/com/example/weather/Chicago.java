@@ -70,7 +70,6 @@ public class Chicago extends AppCompatActivity {
 
         //End initializing views
 
-
         //instantiate the request queue
         requestQueue = Volley.newRequestQueue(this);
 
@@ -106,7 +105,6 @@ public class Chicago extends AppCompatActivity {
                             Log.e("JSON Error", ex.getMessage());
                         }
 
-
                     }
                 },
 
@@ -124,9 +122,6 @@ public class Chicago extends AppCompatActivity {
 //END OF JSON OBJECT REQUEST
 
         //jTesting.setText(dataResults);
-
-
-
 
         //create object request
 
