@@ -60,7 +60,7 @@ public class detroit extends AppCompatActivity {
         idTest = findViewById(R.id.idTest);
         mainWeatherTest = findViewById(R.id.mainWeatherTest);
         descriptionTest = findViewById(R.id.descriptionTest);
-
+        jTesting = findViewById(R.id.jTesting);
 
 
         //End initializing views
@@ -74,13 +74,19 @@ public class detroit extends AppCompatActivity {
         //BAUGH CODE
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "https://api.openweathermap.org/data/2.5/onecall?lat=42.331429&lon=-83.045753&appid=1b34e5a03df81b9a93e074cea4852b5d", null,
+                "https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=5225ba78215711c14d97b36ee6d49633", null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
 
+
+
+
                             JSONArray weather = response.getJSONArray("weather");
+
+
+
 
                             JSONObject currentWeather = weather.getJSONObject(0);
 
@@ -93,19 +99,22 @@ public class detroit extends AppCompatActivity {
                             Log.i("JSON info", "Description" + description);
 
 
-                            jTesting.setText(mainWeather);
+                            dataResults = weather.toString();
 
 
 
-
+                            jTesting.setText(weather.toString());
 
 
                         } catch (JSONException ex) {
                             Log.e("JSON Error", ex.getMessage());
                         }
 
+
                     }
                 },
+
+
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -118,7 +127,7 @@ public class detroit extends AppCompatActivity {
 
 //END OF JSON OBJECT REQUEST
 
-
+            //jTesting.setText(dataResults);
 
 
 
