@@ -134,12 +134,6 @@ public class detroit extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
                         } catch (JSONException ex) {
                             Log.e("JSON Error", ex.getMessage());
                         }
