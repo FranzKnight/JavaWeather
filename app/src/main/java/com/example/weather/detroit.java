@@ -37,8 +37,12 @@ public class detroit extends AppCompatActivity {
     TextView descriptionTest;
 
     TextView jTesting;
+    TextView tempTest;
+
+
     String URL = "https://www.api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=5225ba78215711c14d97b36ee6d49633";
     String dataResults = " ";
+    String tempResults = " ";
 
 
 
@@ -61,7 +65,7 @@ public class detroit extends AppCompatActivity {
         mainWeatherTest = findViewById(R.id.mainWeatherTest);
         descriptionTest = findViewById(R.id.descriptionTest);
         jTesting = findViewById(R.id.jTesting);
-
+        tempTest = findViewById(R.id.tempTest);
 
         //End initializing views
 
@@ -74,7 +78,7 @@ public class detroit extends AppCompatActivity {
         //BAUGH CODE
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=5225ba78215711c14d97b36ee6d49633", null,
+                "https://api.openweathermap.org/data/2.5/forecast?q=detroit&appid=5225ba78215711c14d97b36ee6d49633", null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -83,20 +87,39 @@ public class detroit extends AppCompatActivity {
 
 
 
-                            JSONArray weather = response.getJSONArray("weather");
+                            JSONArray theList = response.getJSONArray("list");
+                            String TESTJSON = theList.toString();
+
+                            JSONObject firstElement = theList.getJSONObject(0);
 
 
 
 
+
+                            //JSONArray weatherArray = firstElement.getJSONArray("main");
+
+                            //JSONObject theWeather = weatherArray.getJSONObject(0);
+
+                            //String TESTJSON2 = weatherArray.toString();
+
+
+                            jTesting.setText(firstElement.toString());
+
+
+
+
+/*
                             JSONObject currentWeather = weather.getJSONObject(0);
 
                             int id = currentWeather.getInt("id");
                             String mainWeather = currentWeather.getString("main");
                             String description = currentWeather.getString("description");
 
+
                             Log.i("JSON info", "ID: " + id);
                             Log.i("JSON info", "main weather: " + mainWeather);
                             Log.i("JSON info", "Description" + description);
+
 
 
                             dataResults = weather.toString();
@@ -104,6 +127,15 @@ public class detroit extends AppCompatActivity {
 
 
                             jTesting.setText(weather.toString());
+*/
+
+
+
+
+
+
+
+
 
 
                         } catch (JSONException ex) {
