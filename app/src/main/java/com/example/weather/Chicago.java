@@ -23,6 +23,81 @@ public class Chicago extends AppCompatActivity {
 
         home = findViewById(R.id.home);
 
+<<<<<<< HEAD
+=======
+        //Text Views
+        idTest = findViewById(R.id.idTest);
+        mainWeatherTest = findViewById(R.id.mainWeatherTest);
+        descriptionTest = findViewById(R.id.descriptionTest);
+        jTesting = findViewById(R.id.jTesting);
+        tempTest = findViewById(R.id.tempTest);
+
+
+        //End initializing views
+
+        //instantiate the request queue
+        requestQueue = Volley.newRequestQueue(this);
+
+        //create object request
+
+
+
+        //BAUGH CODE
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
+                "https://api.openweathermap.org/data/2.5/forecast?q=chicago&appid=5225ba78215711c14d97b36ee6d49633", null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+
+                            JSONArray theList = response.getJSONArray("list");
+                            String TESTJSON = theList.toString();
+
+                            JSONObject firstElement = theList.getJSONObject(0);
+
+                            JSONArray weatherArray = firstElement.getJSONArray("weather");
+
+                            JSONObject theWeather = weatherArray.getJSONObject(0);
+
+                            String TESTJSON2 = weatherArray.toString();
+
+                            tempTest.setText(firstElement.toString());
+
+                            jTesting.setText(TESTJSON2);
+
+                        } catch (JSONException ex) {
+                            Log.e("JSON Error", ex.getMessage());
+                        }
+
+                    }
+                },
+
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+
+        requestQueue.add(jsonObjectRequest);
+
+//END OF JSON OBJECT REQUEST
+
+        //jTesting.setText(dataResults);
+
+        //create object request
+
+
+        //PARSE THROUGH INFO
+
+
+        //EXPORT INFO TO SCREEN
+
+
+>>>>>>> 3f8c1285583507085e662e2344fd5bba8544c0d0
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
