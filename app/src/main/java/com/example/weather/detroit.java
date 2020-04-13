@@ -3,12 +3,17 @@ package com.example.weather;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
+
 
 
 import com.android.volley.Request;
@@ -17,10 +22,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 
@@ -41,14 +54,20 @@ public class detroit extends AppCompatActivity {
     TextView dayFour;
     TextView dayFive;
 
+    TextView todayDay;
 
+    ImageView mainIcon;
+
+
+    String todayIs;
 
     String URL = "https://api.openweathermap.org/data/2.5/forecast?q=detroit&units=imperial&appid=5225ba78215711c14d97b36ee6d49633";
 
 
 
-
-
+    //HELP DR.J
+    String iconCode;
+    String iconUrl = "http://openweathermap.org/img/wn/"+ iconCode + ".png";
 
 
 
@@ -56,16 +75,20 @@ public class detroit extends AppCompatActivity {
     String currentDescriptionText;
     String clouds;
 
-
-
     String feelsLikeTemp;
 
     String minTemp;
     String maxTemp;
     String dayDescription;
-    String dateInfo;
+    //String dateInfo;
 
     String fiveDayForecast;
+
+    Date dateInfo = new Date();
+    DateFormat simple = new SimpleDateFormat("E");
+    String finalOutputDate = simple.format(dateInfo);
+
+
 
 
 
@@ -82,7 +105,6 @@ public class detroit extends AppCompatActivity {
             //Buttons
         home = findViewById(R.id.home);
 
-
             //Text Views
 
         currentTemp = findViewById(R.id.currentTemp);
@@ -93,8 +115,9 @@ public class detroit extends AppCompatActivity {
         dayThree = findViewById(R.id.dayThree);
         dayFour = findViewById(R.id.dayFour);
         dayFive = findViewById(R.id.dayFive);
+        todayDay = findViewById(R.id.todayDay);
 
-
+        mainIcon = findViewById(R.id.mainIcon);
         //End initializing views
 
 
@@ -102,11 +125,7 @@ public class detroit extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         //create object request
-
-
-
-
-        //BAUGH CODE
+        //BAUGH CODE COMMANDEERING
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 URL, null,
@@ -140,7 +159,22 @@ public class detroit extends AppCompatActivity {
 
                                     //Parse to the string with the key of "description", and also can access id, main, and icon
                                     currentDescriptionText = currentWeather.getString("description");
+                                    iconCode = currentWeather.getString("icon");
+
+
                                     currentDescription.setText(currentDescriptionText);
+                                    todayDay.setText(finalOutputDate);
+
+
+                            //Picasso.with(detroit.this).load(iconUrl).into(mainIcon);
+
+
+
+                            //HELP DR.J
+                            Picasso.get().load("https://openweathermap.org/themes/openweathermap/assets/img/openweather-negative-logo-RGB.png").into(mainIcon);
+
+
+
 
 
 
@@ -160,9 +194,11 @@ public class detroit extends AppCompatActivity {
                                         dayDescription = loopWeather.getString("description");
 
                                        // JSONObject dateElement = loopElement.getJSONObject("sys");
-                                        dateInfo = loopElement.getString("dt_txt");
+                                       // dateInfo = loopElement.getString("dt_txt");
 
-                                        fiveDayForecast = "Date: " + dateInfo + "MIN:" + minTemp + "| " + "MAX:" + maxTemp + "DESC: " + dayDescription;
+
+
+                                        fiveDayForecast =" " + minTemp + " | " + maxTemp + " \n DESC: " + dayDescription;
 
                                         if (index == 0)
                                         {
@@ -186,39 +222,6 @@ public class detroit extends AppCompatActivity {
                                         }
 
                                     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            JSONObject theWeather = weatherArray.getJSONObject(0);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                         } catch (JSONException ex) {
