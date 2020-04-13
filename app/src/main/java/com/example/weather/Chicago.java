@@ -23,8 +23,7 @@ public class Chicago extends AppCompatActivity {
 
         home = findViewById(R.id.home);
 
-<<<<<<< HEAD
-=======
+
         //Text Views
         idTest = findViewById(R.id.idTest);
         mainWeatherTest = findViewById(R.id.mainWeatherTest);
@@ -97,7 +96,6 @@ public class Chicago extends AppCompatActivity {
         //EXPORT INFO TO SCREEN
 
 
->>>>>>> 3f8c1285583507085e662e2344fd5bba8544c0d0
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
